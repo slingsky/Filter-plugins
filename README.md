@@ -2,7 +2,7 @@
 	一款基于bootstrap的筛选插件，仅用于学习交流。
 
 
-## 配置参数
+### 配置参数
 
 url 请求链接 返回data
 
@@ -44,7 +44,7 @@ change: function(checkes){return false;}  // 但选项改变是触发
 
 clearBack: function(){ return false;} // 点击清除按钮的返回函数
 
-## 方法
+### 方法
 
 $filter.FilterBox('getAll') // 获取全部已选择的选项
 
