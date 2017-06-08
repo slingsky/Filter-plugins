@@ -34,11 +34,7 @@ title: [] 筛选参数配置
 	
 	searchBoxName: undefined, // 查询参数所对应的key值 默认为data.result.name
 	
-	queryParams: function(params){ // 自定义查询参数 默认为当前输入框的value
-	
-		return params;
-		
-	}
+	queryParams: function(params){ return params; } // 自定义查询参数 默认为当前输入框的value
 
 change: function(checkes){return false;}  // 但选项改变是触发
 
