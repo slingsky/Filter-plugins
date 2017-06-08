@@ -36,7 +36,7 @@ title: [] 筛选参数配置
 	
 	queryParams: function(params){ return params; } // 自定义查询参数 默认为当前输入框的value
 
-change: function(checkes){return false;}  // 但选项改变是触发
+change: function(checkes){return false;}  // 选项改变时触发
 
 clearBack: function(){ return false;} // 点击清除按钮的返回函数
 
