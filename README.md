@@ -5,9 +5,14 @@
 ## 配置参数
 
 url 请求链接 返回data
-title: [] 筛选参数配置
 
-  field: undefined, // 提取对应data里的属性
+data: null // 传入数据数据 {}
+
+clearBtn: true, // 是否显示清除按钮
+
+title: [] 筛选参数配置 
+
+  	field: undefined, // 提取对应data里的属性
   
 	title: undefined, // 筛选类别标题
 	
@@ -34,22 +39,10 @@ title: [] 筛选参数配置
 		return params;
 		
 	}
-	
-data: null // 传入数据数据 {}
 
-clearBtn: true, // 是否显示清除按钮
+change: function(checkes){return false;}  // 但选项改变是触发
 
-change: function(checkes){   // 但选项改变是触发
-
-			return false;
-			
-}
-
-clearBack: function(){ // 点击清除按钮的返回函数
-
-			return false;
-			
-}
+clearBack: function(){ return false;} // 点击清除按钮的返回函数
 
 ## 方法
 
