@@ -1,0 +1,78 @@
+var data = {
+  "result" : {
+    "stepQueryBoList" : [ {
+      "stepId" : 1,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 4,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 3,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 8,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 6,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 5,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 2,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 9,
+      "stepName" : "测试1"
+    }, {
+      "stepId" : 0,
+      "stepName" : "测试1"
+    } ],
+    "resumeStatusList" : [ {
+      "code" : 1,
+      "name" : "测试2"
+    }, {
+      "code" : 2,
+      "name" : "测试2"
+    }, {
+      "code" : 3,
+      "name" : "测试2"
+    }, {
+      "code" : 4,
+      "name" : "测试2"
+    }, {
+      "code" : 5,
+      "name" : "测试2"
+    }, {
+      "code" : 6,
+      "name" : "测试2"
+    }, {
+      "code" : 7,
+      "name" : "测试2"
+    } ],
+    "sexList" : [ {
+      "code" : 1,
+      "name" : "测试3"
+    }, {
+      "code" : 2,
+      "name" : "测试3"
+    } ],
+    "educationLevelList" : [ {
+      "code" : 1,
+      "name" : "测试4"
+    }, {
+      "code" : 1,
+      "name" : "测试4"
+    }, {
+      "code" : 1,
+      "name" : "测试4"
+    }, {
+      "code" : 1,
+      "name" : "测试4"
+    }, {
+      "code" : 1,
+      "name" : "测试4"
+    } ]
+  },
+  "status" : "200"
+}

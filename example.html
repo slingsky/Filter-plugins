@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap-datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="./filter-box/filter-box.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="filterBox"></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap-datetimepicker/moment-with-locales.js"></script>
+    <script src="./bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="./filter-box/filter-box.js"></script>
+
+    <script src="./data.json"></script>
+    <script>
+
+      // 搜索参数
+    $('#filterBox').FilterBox({
+      id: 'filter-box',
+      data: data.result,
+      title: [{
+        field: 'stepQueryBoList', // 提取对应data里的属性
+        title: '测试1', // 筛选类别标题
+        type: 'cheack', // 生成筛选类型 cheack,search,time,choose
+        label: 'stepName', // 生成复选框与下拉选择框所对应的属性名
+        value: 'stepId'
+      },{
+        field: 'resumeStatusList', // 提取对应data里的属性
+        title: '测试2', // 筛选类别标题
+        type: 'cheack', // 生成筛选类型 cheack,search,time,choose
+        label: 'name', // 生成复选框与下拉选择框所对应的属性名
+        value: 'code',
+        splitArray: [3]
+      },{
+      field: 'viewTime',
+        title: '测试时间', // 筛选类别标题
+        id: 'viewTime',
+        type: 'time', // 生成筛选类型 cheack,search,time,choose
+        groupName: 'one'
+      },{
+      field: 'sceneLocation',
+        title: '搜索框1', // 筛选类别标题
+        type: 'search', // 生成筛选类型 cheack,search,time,choose
+        groupName: 'one',
+        searchBoxUrl: '/admin/scene/v2/scene/find/scene/fuzzyquery',
+        searchBoxName: 'location'
+      },{
+      field: 'universityName',
+        title: '搜索框2', // 筛选类别标题
+        type: 'search', // 生成筛选类型 cheack,search,time,choose
+        groupName: 'two'
+    },{
+      field: 'positionName',
+        title: '搜索框3', // 筛选类别标题
+        type: 'search', // 生成筛选类型 cheack,search,time,choose
+        groupName: 'two'
+    },{
+      field: 'userDeliverDate',
+        title: '测试日期', // 筛选类别标题
+        id: 'userDeliverTime',
+        type: 'time', // 生成筛选类型 cheack,search,time,choose
+        groupName: 'three'
+    },{
+      field: 'sexList',
+        title: '选择框', // 筛选类别标题
+        type: 'choose', // 生成筛选类型 cheack,search,time,choose
+        label: 'name',
+        value: 'code',
+        groupName: 'three'
+      },{
+      field: 'educationLevelList',
+        title: '选择框', // 筛选类别标题
+        type: 'choose', // 生成筛选类型 cheack,search,time,choose
+        label: 'name',
+        value: 'code',
+        groupName: 'three'
+    }],
+    change: function(data){
+      console.log(data)
+    },
+    clearBack: function(){
+      alert('clear')
+    }
+    
+    });
+
+  
+
+
+    </script>
+  </body>
+</html>
