@@ -110,7 +110,6 @@
 	FilterBox.prototype.initFilterBoxRouter = function(){
 		var titles = this.options.title;
 		var that = this;
-		
 		for(var i=0; i<titles.length; i++){
 			var title = titles[i];
 			var type = title.type.toLowerCase();
@@ -137,7 +136,7 @@
 		if(that.options.clearBtn){
 			var $clearBtn = $(['<div class="columns-right filter_btn-group pull-left filter_box-clear">',
 						'<div class="btn-group">',
-							'<button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i> 清除筛选</button>',
+							'<button type="button" class="btn btn-primary"><i class="fa fa-eraser"></i> 清除筛选</button>',
 						'</div>',
 					'</div>'].join(''))
 			that.$search.append($clearBtn);
@@ -243,7 +242,7 @@
 			$html = $(['<div class="btn-group" data-filter-id="'+title.field+'">',
               '<button type="button" class="btn btn-primary dropdown-toggle" aria-haspopup="true" aria-expanded="false">'+ title.title +' <span class="caret"></span><p class="select-value"></p></button>',
               '<ul class="dropdown-menu search">',
-                '<li><input type="text"><i class="glyphicon glyphicon-search"></i></li>',
+                '<li><input type="text"><i class="fa fa-search"></i></li>',
                 '<li class="filter_box-searchbox" style="display: none;"><ul></ul></li>',
               '</ul>',
             '</div>'].join(''));
@@ -254,12 +253,12 @@
 			$html.on('keyup',function(event){
 				//回车
 				if(event.keyCode == 13){
-					showData();
+					showSearchData();
 				}
 			});
 			
 			$html.find('input').siblings('i').on('click',function(){
-				showData();
+				showSearchData();
 			});
 			
 			$html.find('.dropdown-toggle').on('click',function(event){
@@ -367,10 +366,13 @@
 						
 						//回车
 						if(event.keyCode == 13){
-							$searchShowBox.parent().siblings().children('input').val($('.choose-color').text());
+							if($('.choose-color').text()){
+								$searchShowBox.parent().siblings().children('input').val($('.choose-color').text());
+							}
+							
 							clearTimeout(keyupTimeOut);
 							keyupTimeOut = null;
-							showData();
+							showSearchData();
 						}
 					}
 				});
@@ -378,7 +380,7 @@
 				$html.find('.filter_box-searchbox').children('ul').on('click','li',function(event){
 					//event.stopPropagation();
 					$(this).parents('.filter_box-searchbox').siblings().children('input').val($(this).text());
-					showData();
+					showSearchData();
 				});
 				
 			}
@@ -389,7 +391,7 @@
 				}
 			}
 
-			function showData(){
+			function showSearchData(){
 				$html.removeClass('open');
 				if($html.find('input').val().trim() !== ''){
 					$html.find('button').addClass('on');
@@ -443,8 +445,9 @@
 			}
 			
 			
+			
 			$html.find('input').on('click',function(){
-				showData();
+				showChooseData();
 			});
 			
 			$html.find('.dropdown-toggle').on('click',function(event){
@@ -457,9 +460,9 @@
 				event.stopPropagation();
 			});
 			
-			function showData(){
+			function showChooseData(){
 				var cheacked = $html.find('input:checked');
-
+				
 				if(cheacked.length !== 0){
 					$html.find('button').addClass('on');
 					var arr = [];
@@ -477,6 +480,7 @@
 					that.options.change(that.getAll());
 				}
 			}
+			
 			
 
 		}
@@ -510,7 +514,7 @@
 	
 			$html.find('.time-search').on('click',function(){
 				$(this).parents('.btn-group').removeClass('open');
-				showData();
+				showTimeData();
 			});
 	
 			$html.find('.dropdown-toggle').on('click',function(event){
@@ -550,7 +554,7 @@
 	        	$html.find('#start'+title.id).data("DateTimePicker").maxDate(e.date);
 	        });
 			
-			function showData(){
+			function showTimeData(){
 				var _str = $.map($html.find('input'),function(item,index){
 					return $(item).val().trim();
 				}).join('-').replace(/(^-*)|(-*$)/g, '');
